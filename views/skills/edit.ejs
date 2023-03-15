@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../stylesheets/style.css" type="text/css">
+    <title>Edit Skills</title>
+</head>
+<body>
+    <h1>How would you like to edit <%= skill.skill %></h1>
+    <form action="/skills/<%= skill.id %>?_method=PUT" method="POST">
+    <input type="text" value="<%= skill.skill %>" name="skill">
+   <% if (skill.isProficient) { %>
+        <input type="checkbox" id="proficient" name="isProficient" checked>
+   <% } else { %>
+        <input type="checkbox" id="proficient" name="isProficient">
+    <% } %>
+    <label for="proficient">Are you proficient?</label>
+    <button type="submit">Submit</button>
+    </form>    
+</body>
+</html>
